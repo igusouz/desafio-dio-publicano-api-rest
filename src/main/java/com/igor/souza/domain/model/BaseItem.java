@@ -7,6 +7,7 @@ import jakarta.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class BaseItem {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,4 +39,5 @@ public abstract class BaseItem {
     public void setDescription(String description) {
         this.description = description;
     }
+
 }

@@ -14,7 +14,7 @@ public class UserController {
 
     private final UserService userService;
 
-    public UserController(UserService userService){
+    public UserController(UserService userService) {
         this.userService = userService;
     }
 
@@ -25,12 +25,12 @@ public class UserController {
     }
 
     @PostMapping
-    public ResponseEntity<User> create(@RequestBody User userCreate){
+    public ResponseEntity<User> create(@RequestBody User userCreate) {
         var userCreated = userService.create(userCreate);
         URI location = ServletUriComponentsBuilder.fromCurrentRequest()
                 .path("/{id}")
                 .buildAndExpand(userCreated.getId())
                 .toUri();
-        return  ResponseEntity.created(location).body(userCreated);
+        return ResponseEntity.created(location).body(userCreated);
     }
 }
